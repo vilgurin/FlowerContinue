@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class Order {
     List<Item> order_list = new ArrayList<Item>();
+    List<User> users = new ArrayList<User>();
     public Payment payment;
     public Delivery delivery;
 
@@ -44,15 +45,35 @@ public class Order {
         return items_price;
     }
 
-    public boolean processOrder(double price) {
-        for (int i = 0; i < order_list.size(); i++) {
-            if (price == order_list.get(i).getPrice()) {
-                order_list.get(i).getDescription();
-                return true;
+    public String processOrder() {
+        return "The order costs: "+calculateTotalPrice()+".";
+    }
+
+    public void addUser(User user){
+        this.users.add(user);
+    }
+    public void removeUser(User user){
+        for (int i = 0; i < users.size();i++){
+            if (Objects.equals(user,users.get(i))){
+                users.remove(i);
             }
         }
-        return false;
     }
+
+    public void notifyUsers(){
+        for (int i = 0; i<users.size();i++){
+            users.get(i).update(1);
+        }
+    }
+
+    public void order(){
+        processOrder();
+        notifyUsers();
+    }
+
+
+
+
 
 
 

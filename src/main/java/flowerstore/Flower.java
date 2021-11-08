@@ -5,7 +5,7 @@ import lombok.ToString;
 import java.util.Arrays;
 
 @Getter @Setter @ToString
-public class Flower {
+public class Flower implements Item{
     private double price;
     private double sepalLength;
     private int[] color;
@@ -25,5 +25,10 @@ public class Flower {
 
     public static void main(String[] args) {
         System.out.println(12);
+    }
+
+    @Override
+    public String getDescription() {
+        return "This is the flower";
     }
 }

@@ -6,7 +6,7 @@ import static flowerstore.FlowerType.CACTUS;
 
 
 @Data
-public class CactusFlower extends Flower{
+public class CactusFlower extends Flower {
     private double price;
     private double sepalLength;
     private int[] color;
@@ -17,6 +17,7 @@ public class CactusFlower extends Flower{
     public void SetColor(int[] color){
         this.color = Arrays.copyOf(color, color.length);
     }
+
 
     public double getPrice(){
         return this.price;
